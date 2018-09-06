@@ -1,0 +1,236 @@
+pivnet_token: ((pivnet_token))                                # [R] PivNet Access Token
+git_token: ((git_token))                                      # [R] Your github token
+git_url: https://github.com/rahul-kj/pcf-concourse-pipelines  # [R] Pipelines github repo
+git_branch: master
+git_username: ((git_username))                                # [R] Your github username
+
+iaas_type: vsphere-esxi                                       # azure-hyperv|vsphere-esxi|aws-xen-hvm|openstack-kvm|vcloud-esxi|google-kvm
+stemcell_type: trusty                                         # xenial|trusty
+
+## Ops Manager installation meta data
+ops_mgr_host: ((ops_mgr_host))                                # [R] Ops Manager FQDN, ex: opsmgr.example.com
+ops_mgr_usr: ((ops_mgr_usr))                                  # [R] Ops Manager admin user
+ops_mgr_pwd: ((ops_mgr_pwd))                                  # [R] Ops Manager admin password
+
+debug: false
+
+product_name:                                                 # Get the product slug from pivnet. It can be found in the URL of the pivnet product, ex: elastic-runtime
+product_identifier:                                           # Product name known to ops manager. Usually its the name of the *.pivotal file. ex: cf
+product_version: ^0\.0\..*$                                   # Update the version number
+
+dependency_product_tiles: 'cf'
+
+## After the pipeline is done with the stage product, click the generate-product-config and fill out the rest of the info
+product_properties: |
+  .properties.default_distributed_system_id:
+    value: 0
+  .properties.dev_plan_enable_service_plan:
+    value: enable
+  .properties.dev_plan_enable_service_plan.enable.cf_service_access:
+    value: enable
+  .properties.dev_plan_enable_service_plan.enable.persistent_disk_type:
+    value:
+  .properties.dev_plan_enable_service_plan.enable.plan_description:
+    value: Plan Description
+  .properties.dev_plan_enable_service_plan.enable.plan_name:
+    value: dev-plan
+  .properties.dev_plan_enable_service_plan.enable.service_instance_azs:
+    value:
+  .properties.dev_plan_enable_service_plan.enable.service_instance_quota:
+    value: 10
+  .properties.dev_plan_enable_service_plan.enable.service_metrics:
+    value: false
+  .properties.dev_plan_enable_service_plan.enable.vm_type:
+    value:
+  .properties.errand_plan:
+    value:
+  .properties.plan1_enable_service_plan:
+    value: enable
+  .properties.plan1_enable_service_plan.enable.cf_service_access:
+    value: enable
+  .properties.plan1_enable_service_plan.enable.default_num_servers:
+    value: 4
+  .properties.plan1_enable_service_plan.enable.locator_persistent_disk_type:
+    value:  
+  .properties.plan1_enable_service_plan.enable.locator_vm_type:
+    value:
+  .properties.plan1_enable_service_plan.enable.max_servers_per_cluster:
+    value: 32
+  .properties.plan1_enable_service_plan.enable.plan_description:
+    value: Plan Description
+  .properties.plan1_enable_service_plan.enable.plan_name:
+    value: extra-small
+  .properties.plan1_enable_service_plan.enable.server_persistent_disk_type:
+    value:
+  .properties.plan1_enable_service_plan.enable.server_vm_type:
+    value:
+  .properties.plan1_enable_service_plan.enable.service_instance_azs:
+    value:
+  .properties.plan1_enable_service_plan.enable.service_instance_quota:
+    value: 10
+  .properties.plan1_enable_service_plan.enable.service_metrics:
+    value: false
+  .properties.plan2_enable_service_plan:
+    value: enable
+  .properties.plan2_enable_service_plan.enable.cf_service_access:
+    value: enable
+  .properties.plan2_enable_service_plan.enable.default_num_servers:
+    value: 4
+  .properties.plan2_enable_service_plan.enable.locator_persistent_disk_type:
+    value:
+  .properties.plan2_enable_service_plan.enable.locator_vm_type:
+    value:
+  .properties.plan2_enable_service_plan.enable.max_servers_per_cluster:
+    value: 32
+  .properties.plan2_enable_service_plan.enable.plan_description:
+    value: Plan Description
+  .properties.plan2_enable_service_plan.enable.plan_name:
+    value: small
+  .properties.plan2_enable_service_plan.enable.server_persistent_disk_type:
+    value:
+  .properties.plan2_enable_service_plan.enable.server_vm_type:
+    value:
+  .properties.plan2_enable_service_plan.enable.service_instance_azs:
+    value:
+  .properties.plan2_enable_service_plan.enable.service_instance_quota:
+    value: 10
+  .properties.plan2_enable_service_plan.enable.service_metrics:
+    value: false
+  .properties.plan3_enable_service_plan:
+    value: enable
+  .properties.plan3_enable_service_plan.enable.cf_service_access:
+    value: enable
+  .properties.plan3_enable_service_plan.enable.default_num_servers:
+    value: 4
+  .properties.plan3_enable_service_plan.enable.locator_persistent_disk_type:
+    value:
+  .properties.plan3_enable_service_plan.enable.locator_vm_type:
+    value:
+  .properties.plan3_enable_service_plan.enable.max_servers_per_cluster:
+    value: 32
+  .properties.plan3_enable_service_plan.enable.plan_description:
+    value: Plan Description
+  .properties.plan3_enable_service_plan.enable.plan_name:
+    value: medium
+  .properties.plan3_enable_service_plan.enable.server_persistent_disk_type:
+    value:
+  .properties.plan3_enable_service_plan.enable.server_vm_type:
+    value:
+  .properties.plan3_enable_service_plan.enable.service_instance_azs:
+    value:
+  .properties.plan3_enable_service_plan.enable.service_instance_quota:
+    value: 10
+  .properties.plan3_enable_service_plan.enable.service_metrics:
+    value: false
+  .properties.plan4_enable_service_plan:
+    value: enable
+  .properties.plan4_enable_service_plan.enable.cf_service_access:
+    value: enable
+  .properties.plan4_enable_service_plan.enable.default_num_servers:
+    value: 4
+  .properties.plan4_enable_service_plan.enable.locator_persistent_disk_type:
+    value:
+  .properties.plan4_enable_service_plan.enable.locator_vm_type:
+    value:
+  .properties.plan4_enable_service_plan.enable.max_servers_per_cluster:
+    value: 32
+  .properties.plan4_enable_service_plan.enable.plan_description:
+    value: Plan Description
+  .properties.plan4_enable_service_plan.enable.plan_name:
+    value: large
+  .properties.plan4_enable_service_plan.enable.server_persistent_disk_type:
+    value:
+  .properties.plan4_enable_service_plan.enable.server_vm_type:
+    value:
+  .properties.plan4_enable_service_plan.enable.service_instance_azs:
+    value:
+  .properties.plan4_enable_service_plan.enable.service_instance_quota:
+    value: 10
+  .properties.plan4_enable_service_plan.enable.service_metrics:
+    value: false
+  .properties.plan5_enable_service_plan:
+    value: enable
+  .properties.plan5_enable_service_plan.enable.cf_service_access:
+    value: enable
+  .properties.plan5_enable_service_plan.enable.default_num_servers:
+    value: 4
+  .properties.plan5_enable_service_plan.enable.locator_persistent_disk_type:
+    value:
+  .properties.plan5_enable_service_plan.enable.locator_vm_type:
+    value:
+  .properties.plan5_enable_service_plan.enable.max_servers_per_cluster:
+    value: 32
+  .properties.plan5_enable_service_plan.enable.plan_description:
+    value: Plan Description
+  .properties.plan5_enable_service_plan.enable.plan_name:
+    value: extra-large
+  .properties.plan5_enable_service_plan.enable.server_persistent_disk_type:
+    value:
+  .properties.plan5_enable_service_plan.enable.server_vm_type:
+    value:
+  .properties.plan5_enable_service_plan.enable.service_instance_azs:
+    value:
+  .properties.plan5_enable_service_plan.enable.service_instance_quota:
+    value: 10
+  .properties.plan5_enable_service_plan.enable.service_metrics:
+    value: false
+  .properties.syslog:
+    value: disable
+  .properties.syslog.enable.syslog_address:
+    value:
+  .properties.syslog.enable.syslog_ca_cert:
+    value:
+  .properties.syslog.enable.syslog_enabled_for_service_instances:
+    value: false
+  .properties.syslog.enable.syslog_permitted_peer:
+    value:
+  .properties.syslog.enable.syslog_port:
+    value:
+  .properties.syslog.enable.syslog_protocol:
+    value: tcp
+  .properties.syslog.enable.syslog_tls:
+    value: false
+  .properties.vm_extensions:
+    value:
+
+product_resources: |
+  cloudcache-broker:
+    instances: 1
+    instance_type:
+      id: micro
+    persistent_disk:
+      size_mb: 1024
+  register-broker:
+    instances: 1
+    instance_type:
+      id: medium.disk
+  smoke-tests:
+    instances: 1
+    instance_type:
+      id: medium.disk
+  upgrade-all-service-instances:
+    instances: 1
+    instance_type:
+      id: medium.disk
+  delete-all-service-instances-and-deregister-broker:
+    instances: 1
+    instance_type:
+      id: medium.disk
+  mem-check:
+    instances: 1
+    instance_type:
+      id: medium.disk
+
+product_network_azs: |
+  network:
+    name:
+  service_network:
+    name:
+  other_availability_zones:
+    - name:
+    - name:
+  singleton_availability_zone:
+    name:
+errands_to_disable:
+
+apply_changes_config:
