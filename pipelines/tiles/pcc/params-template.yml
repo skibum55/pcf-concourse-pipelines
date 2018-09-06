@@ -4,7 +4,7 @@ git_url: https://github.com/rahul-kj/pcf-concourse-pipelines  # [R] Pipelines gi
 git_branch: master
 git_username: ((git_username))                                # [R] Your github username
 
-iaas_type: vsphere-esxi                                       # azure-hyperv|vsphere-esxi|aws-xen-hvm|openstack-kvm|vcloud-esxi|google-kvm
+iaas_type: google-kvm                                      # azure-hyperv|vsphere-esxi|aws-xen-hvm|openstack-kvm|vcloud-esxi|google-kvm
 stemcell_type: trusty                                         # xenial|trusty
 
 ## Ops Manager installation meta data
@@ -14,9 +14,9 @@ ops_mgr_pwd: ((ops_mgr_pwd))                                  # [R] Ops Manager 
 
 debug: false
 
-product_name:                                                 # Get the product slug from pivnet. It can be found in the URL of the pivnet product, ex: elastic-runtime
-product_identifier:                                           # Product name known to ops manager. Usually its the name of the *.pivotal file. ex: cf
-product_version: ^0\.0\..*$                                   # Update the version number
+product_name: pivotal cloudcache                                                # Get the product slug from pivnet. It can be found in the URL of the pivnet product, ex: elastic-runtime
+product_identifier: p-cloudcache                              # Product name known to ops manager. Usually its the name of the *.pivotal file. ex: cf
+product_version: ^1\.4\..*$                                   # Update the version number
 
 dependency_product_tiles: 'cf'
 
